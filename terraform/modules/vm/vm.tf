@@ -11,6 +11,11 @@ resource "azurerm_network_interface" "nic" {
   }
 }
 
+data "azurerm_image" "packerImage" {
+  resource_group_name = "Image-RG"
+  name = "LinuxVM"
+}
+
 resource "azurerm_linux_virtual_machine" "test" {
   name                = "${var.application_type}-${var.resource_type}"
   location            = var.location
@@ -20,15 +25,10 @@ resource "azurerm_linux_virtual_machine" "test" {
   admin_password      = var.admin_password
   disable_password_authentication = false
   network_interface_ids = [azurerm_network_interface.nic.id]
+  source_image_id = data.azurerm_image.packerImage.id
   
   os_disk {
     caching           = "ReadWrite"
     storage_account_type = "Standard_LRS"
-  }
-  source_image_reference {
-    publisher = "Canonical"
-    offer     = "UbuntuServer"
-    sku       = "18.04-LTS"
-    version   = "latest"
   }
 }
