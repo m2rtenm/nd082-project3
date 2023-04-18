@@ -16,7 +16,7 @@ data "azurerm_image" "packerImage" {
   name = "LinuxVM"
 }
 
-resource "azurerm_linux_virtual_machine" "test" {
+resource "azurerm_linux_virtual_machine" "Linux_VM" {
   name                = "${var.application_type}-${var.resource_type}"
   location            = var.location
   resource_group_name = var.resource_group
