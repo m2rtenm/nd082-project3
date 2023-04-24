@@ -7,7 +7,7 @@ resource "azurerm_service_plan" "az_service_plan" {
 }
 
 resource "azurerm_linux_web_app" "Linux_WebApp" {
-  name                = "${var.application_type}-${var.resource_type}"
+  name                = "${var.application_type}-${var.resource_type}-app"
   location            = "${var.location}"
   resource_group_name = "${var.resource_group}"
   service_plan_id     = azurerm_service_plan.az_service_plan.id
