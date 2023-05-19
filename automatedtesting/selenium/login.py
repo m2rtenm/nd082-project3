@@ -15,6 +15,7 @@ def driver_func():
     options = ChromeOptions()
     options.add_argument("--headless")
     options.add_argument("--no-sandbox")
+    options.add_argument('--ignore-certificate-errors')
     driver = webdriver.Chrome(options=options)
     print (f'{log()} Browser started successfully. Navigating to the demo page to login.')
     return driver
