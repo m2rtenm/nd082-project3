@@ -170,7 +170,7 @@ stages:
           - task: AzureWebApp@1
             displayName: 'Deploy Azure Web App'
             inputs:
-              azureSubscription: 'DevOps'     
+              azureSubscription: '$(azureServiceConnectionId)'    
               appName: 'udacitydevops3-appservice-app'               
               appType: webApp
               package: $(Pipeline.Workspace)/drop-fakerestapi/$(Build.BuildId)-fakerestapi.zip      # ToDo: Use the published zip artifact. 
