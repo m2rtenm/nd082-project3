@@ -171,20 +171,21 @@ stages:
             displayName: 'Performance tests'
             inputs:
               script: |
-
-                wget "https://apache.mirrors.lucidnetworks.net//jmeter/binaries/apache-jmeter-5.2.1.tgz"
-                tar -xf apache-jmeter-5.2.1.tgz
+                sudo apt-get update -y
+                sudo apt-get install default-jre-headless -y
+                curl -O https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.5.tgz
+                tar xzvf apache-jmeter-5.5.tgz
                 mkdir -p testing/jmeter
 
                 unzip -o $(Build.BuildId)-perftests.zip -d testing/jmeter
 
                 # Endurance test
                 mkdir -p log/endurance
-                ./apache-jmeter-5.2.1/bin/jmeter -n -t testing/jmeter/EnduranceTest.jmx -l EnduranceTestResult.csv -e -f -o log/endurance -j log/endurance/endurance-test.log
+                ./apache-jmeter-5.5/bin/jmeter -n -t testing/jmeter/EnduranceTest.jmx -l EnduranceTestResult.csv -e -f -o log/endurance -j log/endurance/endurance-test.log
 
                 # Stress test
                 mkdir -p log/stress
-                ./apache-jmeter-5.2.1/bin/jmeter -n -t testing/jmeter/StressTest.jmx -l StressTestResult.csv -e -f -o log/stress -j log/stress/stress-test.log
+                ./apache-jmeter-5.5/bin/jmeter -n -t testing/jmeter/StressTest.jmx -l StressTestResult.csv -e -f -o log/stress -j log/stress/stress-test.log
                 
               workingDirectory: $(Pipeline.Workspace)/drop-perftests
               
