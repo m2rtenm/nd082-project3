@@ -21,9 +21,9 @@ To complete this project, you need the following resources:
 ## 3. Performance testing with JMeter
 
 ### Endurance test report
-
+![1](./screenshots/jmeter_endurance_html.png)
 ### Stress test report
-
+![1](./screenshots/jmeter_stress_html.png)
 ### JMeter output in CI/CD pipeline
 ![1](./screenshots/pipeline_jmeter.png)
 ## 4. Integration testing with Postman
