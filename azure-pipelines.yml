@@ -195,14 +195,14 @@ stages:
   - deployment: VMDeploy
     displayName: Selenium Tests
     environment: 
-      name:   QualityReleasesProject3    # ToDo: Change/provide a name
+      name:   QualityReleasesProject3
       resourceType: VirtualMachine
     strategy:
       runOnce:
         deploy:
           steps:
           - download: current
-            artifact: drop-uitests     # ToDo: Change/provide a name
+            artifact: drop-uitests
             
           - task: Bash@3
             inputs:
