@@ -39,7 +39,7 @@ For integration testing with Postman, the original fake REST API couldn't be use
 
 ### Selenium tests output in CI/CD pipeline
 
-### Azure monitor containing Selenium logs
+### Azure monitor with Selenium logs
 
 ## 6. Azure monitoring
 
