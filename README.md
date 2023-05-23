@@ -44,5 +44,6 @@ For integration testing with Postman, the original fake REST API couldn't be use
 ## 6. Azure monitoring
 
 ### Azure monitoring chart
-
+![1](./screenshots/azure_monitor_chart.png)
 ### Triggered email alert
+![1](./screenshots/azure_email_trigger.png)
